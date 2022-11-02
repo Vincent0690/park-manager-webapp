@@ -1,0 +1,20 @@
+{
+  "name": "park-manager-webapp",
+  "version": "1.0.0",
+  "description": "A webapp to manage a park of vehicules.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Vincent",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-device": "^0.4.2",
+    "helmet": "^6.0.0",
+    "mongoose": "^6.7.1",
+    "path": "^0.12.7",
+    "serve-favicon": "^2.5.0"
+  }
+}
