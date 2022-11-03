@@ -1,23 +1,18 @@
-import Vehicules from "../models/Vehicules";
-import PlanningEntries from "../models/PlanningEntries";
+const Vehicules = require("../models/Vehicules");
+const PlanningEntries = require("../models/PlanningEntries.js");
 
 const cache = {};
 
-export function get() {
-	return new Promise((resolve, reject) => {
-		switch(type) {
-			case value:
-				
-				break;
-		
-			default:
-				break;
-		}
-	});
-};
-
-export function update() {
-	return new Promise((resolve, reject) => {
-		
-	});
+module.exports = {
+	get() {
+		return {
+			vehicules: cache.vehicules,
+			planning: cache.planning,
+		};
+	},
+	update() {
+		return new Promise((resolve, reject) => {
+			
+		});
+	}
 };

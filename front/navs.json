@@ -1,0 +1,10 @@
+[
+	{
+		"name": "Véhicules",
+		"path": "/vehicules"
+	},
+	{
+		"name": "Planning",
+		"path": "/planning"
+	}
+]
