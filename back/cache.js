@@ -3,11 +3,21 @@ import PlanningEntries from "../models/PlanningEntries";
 
 const cache = {};
 
-module.exports = {
-	get: (type) => new Promise((resolve, reject) => {
+export function get() {
+	return new Promise((resolve, reject) => {
+		switch(type) {
+			case value:
+				
+				break;
 		
-	}),
-	update: (type, data) => new Promise((resolve, reject) => {
+			default:
+				break;
+		}
+	});
+};
+
+export function update() {
+	return new Promise((resolve, reject) => {
 		
-	}),
+	});
 };

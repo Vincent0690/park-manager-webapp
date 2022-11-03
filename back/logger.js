@@ -1,9 +1,13 @@
-export function info() {
+export function info(text, source) {
+    return console.info(`[INFO] [${source}] ${text}`);
+};
 
-}
-export function error() {
+export function error(text, source, trace) {
+    console.error(`[ERROR] [${source}] ${text}`);
 
-}
-export function warn() {
-	
-}
+    return console.trace(trace);
+};
+
+export function warn(text, source) {
+	return console.warn(`[WARN] [${source}] ${text}`);
+};
