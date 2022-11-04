@@ -5,15 +5,15 @@ head
 		include ./css/main.css
 	script(src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js")
 	script
-		include ./scripts/script.js
+		include ./js/navbar.js
 	title=title
-	meta(name="description", content=`Page Not Found`)
-	meta(name="viewport", content=`width=device-width, initial-scale=1`)
+	meta(name="description", content="Page Not Found")
+	meta(name="viewport", content="width=device-width, initial-scale=1")
 
 #wrapper.animate
 	nav.navbar.header-top.fixed-top.navbar-expand-lg.navbar-dark.bg-dark
 		span.navbar-toggler-icon.modal-close
-		a.navbar-brand(href="/") Acceuil
+		a.navbar-brand(href="/") PARK MANAGER
 		button.navbar-toggler(type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation")
 			span.navbar-toggler-icon
 		#navbarText.collapse.navbar-collapse
@@ -39,4 +39,4 @@ head
 			}
 	h5.title 404
 	p.text
-		| Page Not Found
+		| Page inexistante

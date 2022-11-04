@@ -1,7 +1,6 @@
 const database = require("./back/database.js");
 const logger = require("./back/logger.js");
 const dotenv = require("dotenv").config();
-const favicon = require("serve-favicon");
 const device = require("express-device");
 const cache = require("./back/cache.js");
 const express = require("express");
@@ -30,7 +29,6 @@ database.connect()
 	return process.exit(1);
 });
 
-//app.use(favicon(path.join(__dirname, "front", "favicon.ico")));
 app.set("views", path.join(__dirname, "front", "views"));
 app.use(express.static("front/public"));
 app.set("view engine", "pug");
