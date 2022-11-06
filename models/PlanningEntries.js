@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
 
-module.exports = mongoose.model("PlanningEntries", mongoose.Schema({
+module.exports = mongoose.model("PlanningEntries", new mongoose.Schema({
 	
 }));
