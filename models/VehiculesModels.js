@@ -7,20 +7,7 @@ const optionsSchema = new mongoose.Schema({
 	hasReverseCam: Boolean //Does it have a reverse camera?
 });
 
-const partsSchema = new mongoose.Schema({
-	id: {
-		type: String, //Part id (internal reference)
-		required: true
-	},
-});
-
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
-	id: {
-		type: String, // Vehicule model id (ex: LD13PLUS_AC_AUTO)
-		index: true,
-		uppercase: true,
-		required: true
-	},
 	model: {
 		type: String, //Vehicule model (ex: LD 13 PLUS)
 		uppercase: true,
@@ -38,6 +25,6 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	height: Number, //Vehicule height in meters
 	length: Number, //Vehicule length in meters
 	width: Number, //Vehicule width in meters
-	parts: [partsSchema], //Vehicule parts list
+	parts: Array, //Array of _id parts list
 	engine: Object
 }));

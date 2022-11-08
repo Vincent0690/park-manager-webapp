@@ -13,16 +13,10 @@ const partsCrossReferencesSchema = new mongoose.Schema({
 });
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
-	id: {
-		type: String, //Internal part id (ex: )
-		index: true,
-		uppercase: true,
-		required: true
-	},
 	type: {
 		type: String, //Part type (ex: FUEL_FILTER)
 		required: true
 	},
 	image: String,
-	references: [partsCrossReferencesSchema], //Array of objects
+	references: [partsCrossReferencesSchema] //Array of cross references
 }));
