@@ -1,3 +1,9 @@
+### Main app
+- [ ] Caching strategy  
+	- [ ] Generation of a cache blueprint number botn in the database and the app  
+	- [ ] Algo to detect changes by comparing both blueprints numbers and the documents that are modified  
+	- [ ] Update the modified cache document(s)  
+
 ### Features
 - [ ] Vehicules support  
 	- [ ] Cars  

@@ -8,9 +8,8 @@ const optionsSchema = new mongoose.Schema({
 });
 
 const partsSchema = new mongoose.Schema({
-	description: {
-		type: String, //Part type (ex: FUEL_FILTER)
-		references: [partsReferencesSchema], //Array of objects
+	id: {
+		type: String, //Part id (internal reference)
 		required: true
 	},
 });

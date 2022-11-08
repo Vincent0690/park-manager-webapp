@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const partsReferencesSchema = new mongoose.Schema({
+const partsCrossReferencesSchema = new mongoose.Schema({
 	seller: {
 		type: String, //Revendor name (ex: 	MANN FILTERS)
 		required: true
@@ -14,7 +14,7 @@ const partsReferencesSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	id: {
-		type: String, // Part id (ex: )
+		type: String, //Internal part id (ex: )
 		index: true,
 		uppercase: true,
 		required: true
@@ -23,5 +23,6 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 		type: String, //Part type (ex: FUEL_FILTER)
 		required: true
 	},
-	references: [partsReferencesSchema], //Array of objects
+	image: String,
+	references: [partsCrossReferencesSchema], //Array of objects
 }));
