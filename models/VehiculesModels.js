@@ -7,6 +7,17 @@ const optionsSchema = new mongoose.Schema({
 	hasReverseCam: Boolean //Does it have a reverse camera?
 });
 
+const engineSchema = new mongoose.Schema({
+	brand: {
+		type: String,
+		required: true
+	},
+	model: {
+		type: String,
+		required: true
+	}
+});
+
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	model: {
 		type: String, //Vehicule model (ex: LD 13 PLUS)
@@ -25,6 +36,6 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	height: Number, //Vehicule height in meters
 	length: Number, //Vehicule length in meters
 	width: Number, //Vehicule width in meters
-	parts: Array, //Array of _id parts list
-	engine: Object
+	parts: Array, //Array of Strings _id parts list
+	engine: engineSchema //
 }));
