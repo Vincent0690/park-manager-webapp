@@ -15,7 +15,11 @@ const engineSchema = new mongoose.Schema({
 	model: {
 		type: String,
 		required: true
-	}
+	},
+	horsepower: Number,
+	cylinders: Number,
+	oilCapacity: Number,
+	oilQuality: String
 });
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
