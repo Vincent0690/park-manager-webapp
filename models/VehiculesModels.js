@@ -51,7 +51,23 @@ const retarderSchema = new mongoose.Schema({
 		required: true
 	},
 	type: String, //HYDRAULIC_OIL, HYDRAULIC_WATER, ELECTRIC
-	bymassFlywheel: Boolean
+	bimassFlywheel: Boolean
+});
+
+const axlesSchema = new mongoose.Schema({
+	model: {
+		type: String, //Axles model name
+		uppercase: true,
+		required: true
+	},
+	brand: {
+		type: String, //Axles brand name
+		uppercase: true,
+		required: true
+	},
+	numbersOfAxles: Number,
+	tyresSize: String, //(ex: 295/80R22.5)
+	rimSize: String, //(ex: )
 });
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
@@ -75,5 +91,6 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	parts: Array, //Array of Strings _id parts list
 	engine: engineSchema, //Engine data
 	gearbox: gearboxSchema, //Gearbox data
-	retarder: retarderSchema //Retarder data
+	retarder: retarderSchema, //Retarder data
+	axles: axlesSchema //Axles data
 }));
