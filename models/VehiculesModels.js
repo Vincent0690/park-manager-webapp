@@ -23,6 +23,37 @@ const engineSchema = new mongoose.Schema({
 	injectionType: String //(ex: INJECTOR_PUMP or HIGH_PRESSURE_RAMP)
 });
 
+const gearboxSchema = new mongoose.Schema({
+	model: {
+		type: String, //Gearbox model name
+		uppercase: true,
+		required: true
+	},
+	brand: {
+		type: String, //Gearbox brand name
+		uppercase: true,
+		required: true
+	},
+	speeds: Number,
+	type: String, //HYDRAULIC_COUPLE_CONVERTER, MANUAL, ROBOTIZED, AUTO
+	bymassFlywheel: Boolean
+});
+
+const retarderSchema = new mongoose.Schema({
+	model: {
+		type: String, //Retarder model name
+		uppercase: true,
+		required: true
+	},
+	brand: {
+		type: String, //Retarder brand name
+		uppercase: true,
+		required: true
+	},
+	type: String, //HYDRAULIC_OIL, HYDRAULIC_WATER, ELECTRIC
+	bymassFlywheel: Boolean
+});
+
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	model: {
 		type: String, //Vehicule model (ex: LD 13 PLUS)
@@ -42,5 +73,7 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	length: Number, //Vehicule length in meters
 	width: Number, //Vehicule width in meters
 	parts: Array, //Array of Strings _id parts list
-	engine: engineSchema //
+	engine: engineSchema, //Engine data
+	gearbox: gearboxSchema, //Gearbox data
+	retarder: retarderSchema //Retarder data
 }));
