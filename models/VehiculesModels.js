@@ -19,7 +19,8 @@ const engineSchema = new mongoose.Schema({
 	horsepower: Number,
 	cylinders: Number,
 	oilCapacity: Number,
-	oilQuality: String
+	oilQuality: String,
+	injectionType: String //(ex: INJECTOR_PUMP or HIGH_PRESSURE_RAMP)
 });
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
