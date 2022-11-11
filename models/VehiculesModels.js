@@ -16,11 +16,21 @@ const engineSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	horsepower: Number,
-	cylinders: Number,
-	oilCapacity: Number,
-	oilQuality: String,
-	injectionType: String //(ex: INJECTOR_PUMP or HIGH_PRESSURE_RAMP)
+	euroCertification: Number, //(ex: 6)
+	horsepower: Number, //in hp (ex: 310)
+	cylinders: Number, //(ex: 6)
+	oilCapacity: Number, //in liters (ex: 24)
+	oilQuality: String, //(ex: 15w30)
+	oilChangeFrequencyInKms: Number, //(ex: 60 000)
+	oilChangeFrequencyInDays: Number, //(ex: 365)
+	injectionType: String, //(ex: INJECTOR_PUMP, HIGH_PRESSURE_RAMP)
+	coolingMethod: String, //(ex: WATER, AIR)
+	bore: Number, //in mm (ex: 107)
+	stroke: Number, //in mm (ex: 124)
+	displacement: Number, //in liters (6.7)
+	maxHpRPMRange: Number, //in RPM (ex: 2200)
+	maxRPM: Number,
+	maxTorque: Number, //in NM (ex: 1100)
 });
 
 const gearboxSchema = new mongoose.Schema({
@@ -54,20 +64,79 @@ const retarderSchema = new mongoose.Schema({
 	bimassFlywheel: Boolean
 });
 
-const axlesSchema = new mongoose.Schema({
+const brakeSchema = new mongoose.Schema({
+	method: String, //(ex: DISCS)
+});
+
+const reducerSchema = new mongoose.Schema({
 	model: {
-		type: String, //Axles model name
+		type: String, //Reducer model name
 		uppercase: true,
 		required: true
 	},
 	brand: {
-		type: String, //Axles brand name
+		type: String, //Reducer brand name
 		uppercase: true,
 		required: true
 	},
+	ratio: Number //Diff ratio (ex: 4.27)
+});
+
+const frontAxleSchema = new mongoose.Schema({
+	model: {
+		type: String, //Axle model name
+		uppercase: true,
+		required: true
+	},
+	brand: {
+		type: String, //Axle brand name
+		uppercase: true,
+		required: true
+	},
+	brake: brakeSchema,
+	type: String, //(ex: INDEPENDENT, RIGID)
+	maxLoad: Number //in kg (ex: 7100)
+});
+
+const rearAxleSchema = new mongoose.Schema({
+	model: {
+		type: String, //Axle model name
+		uppercase: true,
+		required: true
+	},
+	brand: {
+		type: String, //Axle brand name
+		uppercase: true,
+		required: true
+	},
+	brake: brakeSchema,
+	type: String, //(ex: SINGLE_REDUCTION_HYPOID_RIGID)
+	maxLoad: Number, //in kg (ex: 12300)
+	reducer: reducerSchema
+});
+
+const additionalAxleSchema = new mongoose.Schema({
+	model: {
+		type: String, //Axle model name
+		uppercase: true,
+		required: true
+	},
+	brand: {
+		type: String, //Axle brand name
+		uppercase: true,
+		required: true
+	},
+	brake: brakeSchema
+});
+
+const axlesSchema = new mongoose.Schema({
 	numbersOfAxles: Number,
 	tyresSize: String, //(ex: 295/80R22.5)
 	rimSize: String, //(ex: )
+	front: frontAxleSchema,
+	rear: rearAxleSchema,
+	front: frontAxleSchema,
+	additional: additionalAxleSchema
 });
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
