@@ -8,7 +8,7 @@
 __All Database Schemas are stored in [/models/](./models/)__
 
 ### Example of a [VehiculesModels](./models/VehiculesModels.js) document
-	```json
+
 	{
 		"model": "LD 13 PLUS",
 		"brand": "TEMSA",
@@ -39,4 +39,3 @@ __All Database Schemas are stored in [/models/](./models/)__
 		"type": "BUS",
 		"fuelTankCapacity": 350
 	}
-	```
