@@ -160,9 +160,10 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	gearbox: gearboxSchema, //Gearbox data
 	retarder: retarderSchema, //Retarder data
 	axles: axlesSchema, //Axles data
-	height: Number, //Vehicule height in meters
-	length: Number, //Vehicule length in meters
-	width: Number, //Vehicule width in meters
+	height: Number, //Vehicule height in mm
+	length: Number, //Vehicule length in mm
+	width: Number, //Vehicule width in mm
 	parts: Array, //Array of Strings _id parts list
-	type: String, //Vehicule type (ex: BUS, LIGHT_TRUCK, CAR)
+	type: String, //Vehicule type (ex: SCHOOL_BUS, TOURISM_BUS, LIGHT_TRUCK, CAR)
+	fuelTankCapacity: Number //Fuel Tank Capacity in liters (ex: 350)
 }));

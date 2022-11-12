@@ -7,29 +7,36 @@
 
 __All Database Schemas are stored in [/models/](./models/)__
 
-## [VehiculesModels](./models/VehiculesModels.js)
+### Example of a [VehiculesModels](./models/VehiculesModels.js) document
+	```json
+	{
+		"model": "LD 13 PLUS",
+		"brand": "TEMSA",
+		"options": {
+			"hasAutomaticGearbox": true,
+			"hasAC": true,
+			"hasPMRRamp": true,
+			"hasReverseCam": false
+		},
+		"engine": {
 
-    {
-            type: String, //Vehicule model name (ex: LD 13 PLUS)
-            uppercase: true,
-            required: true
-        },
-        brand: {
-            type: String, //Vehicule brand name (ex: TEMSA)
-            uppercase: true,
-            required: true
-        },
-        options: {
-            type: optionsSchema, //Vehicule options
-            required: true
-        },
-        engine: engineSchema, //Engine data
-        gearbox: gearboxSchema, //Gearbox data
-        retarder: retarderSchema, //Retarder data
-        axles: axlesSchema, //Axles data
-        height: Number, //Vehicule height in meters
-        length: Number, //Vehicule length in meters
-        width: Number, //Vehicule width in meters
-        parts: Array, //Array of Strings _id parts list
-        type: String, //Vehicule type (ex: BUS, LIGHT_TRUCK, CAR)
-    }
+		},
+		"gearbox": {
+
+		},
+		"retarder": {
+
+		},
+		"axles": {
+
+		},
+		"height": 3350,
+		"length": 13050,
+		"width": 2550,
+		"parts": [
+			""
+		],
+		"type": "BUS",
+		"fuelTankCapacity": 350
+	}
+	```
