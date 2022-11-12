@@ -4,7 +4,10 @@ const optionsSchema = new mongoose.Schema({
 	hasAutomaticGearbox: Boolean, //Does it have an automatic gearbox?
 	hasAC: Boolean, //Does it have AC?
 	hasPMRRamp: Boolean, //Does it have a PMR ramp?
-	hasReverseCam: Boolean //Does it have a reverse camera?
+	hasReverseCam: Boolean, //Does it have a reverse camera?
+	hasESC: Boolean,
+	hasABS: Boolean,
+	hasEBS: Boolean,
 });
 
 const engineSchema = new mongoose.Schema({
@@ -137,8 +140,25 @@ const axlesSchema = new mongoose.Schema({
 	rimSize: String, //(ex: )
 	front: frontAxleSchema,
 	rear: rearAxleSchema,
-	front: frontAxleSchema,
 	additional: additionalAxleSchema
+});
+
+const frontDoorSchema = new mongoose.Schema({
+	
+});
+
+const rearDoorSchema = new mongoose.Schema({
+	
+});
+
+const additionalDoorSchema = new mongoose.Schema({
+	
+});
+
+const doorsSchema = new mongoose.Schema({
+	front: frontDoorSchema,
+	rear: rearDoorSchema,
+	additional: additionalDoorSchema
 });
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
@@ -160,9 +180,15 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	gearbox: gearboxSchema, //Gearbox data
 	retarder: retarderSchema, //Retarder data
 	axles: axlesSchema, //Axles data
+	doors: doorsSchema, //Doors data
 	height: Number, //Vehicule height in mm
 	length: Number, //Vehicule length in mm
 	width: Number, //Vehicule width in mm
+	wheelbase: Number, //Vehicule wheelbase in mm (Empattement)
+	interiorHeight: Number, //Vehicule interior height in mm (Hauteur Intérieure)
+	frontOverhang: Number, //Vehicule front overhang in mm (Porte-à-faux avant)
+	rearOverhang: Number, //Vehicule rear overhang in mm (Porte-à-faux arrière)
+	weight: Number, //Vehicule total weight in kg
 	parts: Array, //Array of Strings _id parts list
 	type: String, //Vehicule type (ex: SCHOOL_BUS, TOURISM_BUS, LIGHT_TRUCK, CAR)
 	fuelTankCapacity: Number //Fuel Tank Capacity in liters (ex: 350)
