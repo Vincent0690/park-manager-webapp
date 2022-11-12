@@ -17,6 +17,8 @@ const engineSchema = new mongoose.Schema({
 		required: true
 	},
 	euroCertification: Number, //(ex: 6)
+	critairCertification: Number, //(ex: 2)
+	fuelType: String, //(ex: DIESEL, GASOLINE, HYDROGEN, HYBRID, ELECTRIC)
 	horsepower: Number, //in hp (ex: 310)
 	cylinders: Number, //(ex: 6)
 	oilCapacity: Number, //in liters (ex: 24)
@@ -141,25 +143,26 @@ const axlesSchema = new mongoose.Schema({
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	model: {
-		type: String, //Vehicule model (ex: LD 13 PLUS)
+		type: String, //Vehicule model name (ex: LD 13 PLUS)
 		uppercase: true,
 		required: true
 	},
 	brand: {
-		type: String, //Vehicule brand (ex: TEMSA)
+		type: String, //Vehicule brand name (ex: TEMSA)
 		uppercase: true,
 		required: true
 	},
 	options: {
-		type: [optionsSchema], //Vehicule options
+		type: optionsSchema, //Vehicule options
 		required: true
 	},
+	engine: engineSchema, //Engine data
+	gearbox: gearboxSchema, //Gearbox data
+	retarder: retarderSchema, //Retarder data
+	axles: axlesSchema, //Axles data
 	height: Number, //Vehicule height in meters
 	length: Number, //Vehicule length in meters
 	width: Number, //Vehicule width in meters
 	parts: Array, //Array of Strings _id parts list
-	engine: engineSchema, //Engine data
-	gearbox: gearboxSchema, //Gearbox data
-	retarder: retarderSchema, //Retarder data
-	axles: axlesSchema //Axles data
+	type: String, //Vehicule type (ex: BUS, LIGHT_TRUCK, CAR)
 }));
