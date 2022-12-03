@@ -142,7 +142,7 @@ const axlesSchema = new mongoose.Schema({
 	rear: rearAxleSchema,
 	additional: additionalAxleSchema
 });
-
+/*
 const frontDoorSchema = new mongoose.Schema({
 	
 });
@@ -160,6 +160,7 @@ const doorsSchema = new mongoose.Schema({
 	rear: rearDoorSchema,
 	additional: additionalDoorSchema
 });
+*/
 
 module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	model: {
@@ -180,7 +181,7 @@ module.exports = mongoose.model("Vehicules", new mongoose.Schema({
 	gearbox: gearboxSchema, //Gearbox data
 	retarder: retarderSchema, //Retarder data
 	axles: axlesSchema, //Axles data
-	doors: doorsSchema, //Doors data
+	//doors: doorsSchema, //Doors data
 	height: Number, //Vehicule height in mm
 	length: Number, //Vehicule length in mm
 	width: Number, //Vehicule width in mm
